@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon dist/server.js",
-    "debug": "nodemon  --inspect dist/server.js",
-    "compile": "tsc -w",
-    "compile-once": "tsc",
-    "test": "node_modules/mocha/bin/mocha --exit -r ts-node/register 'src/**/**spec.ts'"
+    "start-continuous": "./node_modules/nodemon/bin/nodemon.js dist/server.js",
+    "start": "node dist/server.js",
+    "debug": "./node_modules/nodemon/bin/nodemon.js  --inspect dist/server.js",
+    "compile": "./node_modules/typescript/bin/tsc -w",
+    "compile-once": "./node_modules/typescript/bin/tsc",
+    "test": "./node_modules/mocha/bin/mocha --exit -r ts-node/register 'src/**/**spec.ts'"
   },
   "repository": {
     "type": "git",

@@ -19,14 +19,6 @@ export default class Network {
       message: 'ok',
       code: 0,
     },
-    INVALID_PARAMETER: {
-      message: 'Invalid/Missing Parameter',
-      code: 1,
-    },
-    UNKNOWN_ERROR: {
-      message: 'Unknown Error',
-      code: 2,
-    },
     POKEMON_NOT_FOUND: {
       message: 'Pokemon not found',
       code: 3,

@@ -4,18 +4,6 @@ import { ResponseError } from '../exceptions/response.exception';
 import Network from '../constants/network';
 
 export default class ResponseFormatter {
-  /**
-   * @description Returns Response Interface Object with Success Message and Code
-   * @param data
-   */
-  public static getSuccessResponse(data: Object): ResponseInterface {
-    return {
-      data,
-      message: Network.ERROR_CODES.SUCCESS.message,
-      error: Network.ERROR_CODES.SUCCESS.code,
-    };
-  }
-
   public static sendSuccessResponse(res: Response, data: Object): void {
     const response: ResponseInterface = {
       data,
@@ -24,27 +12,6 @@ export default class ResponseFormatter {
     };
     res.send(response);
   }
-
-  /**
-   * @description Returns Response Interface Object with Invalid Message and Code
-   * @param data
-   */
-  public static getInvalidParameterResponse(
-    data: Array<Object>
-  ): ResponseInterface {
-    return {
-      data,
-      message: Network.ERROR_CODES.INVALID_PARAMETER.message,
-      error: Network.ERROR_CODES.INVALID_PARAMETER.code,
-    };
-  }
-
-  /**
-   * @description Format and send error Response
-   * @param error
-   * @param res
-   * @param data
-   */
 
   /**
    * @description Format and send error Response
