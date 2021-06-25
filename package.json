@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon dist/server.js",
+    "debug": "nodemon  --inspect dist/server.js",
+    "compile": "tsc -w",
+    "compile-once": "tsc"
   },
   "repository": {
     "type": "git",
@@ -20,5 +23,31 @@
   "bugs": {
     "url": "https://github.com/saarang1995/pokedex/issues"
   },
-  "homepage": "https://github.com/saarang1995/pokedex#readme"
+  "homepage": "https://github.com/saarang1995/pokedex#readme",
+  "dependencies": {
+    "async": "^3.2.0",
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "errorhandler": "^1.5.1",
+    "express": "^4.17.1",
+    "express-validator": "^6.12.0",
+    "node": "^16.3.0"
+  },
+  "devDependencies": {
+    "@types/async": "^3.2.6",
+    "@types/body-parser": "^1.19.0",
+    "@types/chai": "^4.2.19",
+    "@types/dotenv": "^8.2.0",
+    "@types/errorhandler": "^1.5.0",
+    "@types/express": "^4.17.12",
+    "@types/express-validator": "^3.0.0",
+    "@types/mocha": "^8.2.2",
+    "@types/node": "^15.12.4",
+    "chai": "^4.3.4",
+    "nodemon": "^2.0.7",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.4"
+  }
 }
