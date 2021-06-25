@@ -30,7 +30,8 @@ export default class PokemonRoute {
     return new PokemonController(
       new PokemonService(
         new PokeApiService(new HelperService()),
-        new TranslatorService()
+        new TranslatorService(),
+        new HelperService()
       )
     );
   }

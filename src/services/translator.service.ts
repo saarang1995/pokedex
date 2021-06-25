@@ -16,9 +16,8 @@ export default class TranslatorService {
 
   async getTranslation(text: string, translation: Translation) {
     try {
-      const response: AxiosResponse = await axios.post(
+      const response: AxiosResponse = await axios.get(
         this.APIS.get(translation),
-        null,
         {
           params: {
             text,
