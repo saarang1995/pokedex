@@ -4,6 +4,7 @@ import { ResponseError } from '../exceptions/response.exception';
 import HelperService from '../utils/helper.service';
 import ResponseFormatter from '../utils/response_formatter.service';
 
+// Route middleware : Pokemon
 export default class PokemonMiddleware {
   /**
    * This middleware makes sure that the user can only provide a string but not a number

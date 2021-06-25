@@ -17,7 +17,7 @@ export default class PokedexServer {
       // Graceful shutdown logic
       console.log('------------------ CLOSED ------------------');
       // FIXME: Causes Integration test to exit
-      // process.exit(0); // mark it as successful exit
+      process.exit(0); // mark it as successful exit
     });
     // Needed here as may encounter bugs in bootstrapping
     process.on('uncaughtException', (err) => {

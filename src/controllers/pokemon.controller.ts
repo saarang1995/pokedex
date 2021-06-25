@@ -3,6 +3,7 @@ import { Request, Response } from 'express';
 import PokemonService from '../services/pokemon.service';
 import ResponseFormatter from '../utils/response_formatter.service';
 
+// Route controller: Pokemon
 export default class PokemonController {
   constructor(private pokemonService: PokemonService) {}
 

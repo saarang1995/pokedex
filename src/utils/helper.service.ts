@@ -1,5 +1,9 @@
 import { AxiosError } from 'axios';
 import { Translation } from './../enums/translation.enum';
+
+/**
+ * Responsible for providing helper methods throughout the service
+ */
 export default class HelperService {
   /**
    * @description Replaces \n, \r, \t, \f with ' ' in a string

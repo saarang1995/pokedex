@@ -1,3 +1,4 @@
+// Responsible for Providing Error codes and HTTP status codes
 export default class Network {
   static readonly HTTP_STATUS_CODE = {
     OK: 200, // Standard response for successful HTTP requests.
@@ -14,6 +15,7 @@ export default class Network {
     'No Content': 204, // The server successfully processed the request, and is not returning any content
   };
 
+  // Error codes:
   static readonly ERROR_CODES = {
     SUCCESS: {
       message: 'ok',

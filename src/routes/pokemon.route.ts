@@ -7,6 +7,7 @@ import PokemonService from '../services/pokemon.service';
 import TranslatorService from '../services/translator.service';
 import HelperService from '../utils/helper.service';
 
+// Route for providing Pokemon data
 export default class PokemonRoute {
   private router = express.Router();
   constructor() {
