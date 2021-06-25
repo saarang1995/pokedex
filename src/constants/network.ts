@@ -15,25 +15,29 @@ export default class Network {
   };
 
   static readonly ERROR_CODES = {
-    UNHANDLED: {
-      message: 'Unhandled error',
-      code: 'UNHANDLED',
-    },
     SUCCESS: {
       message: 'ok',
-      code: '0',
+      code: 0,
     },
     INVALID_PARAMETER: {
       message: 'Invalid/Missing Parameter',
-      code: '1',
+      code: 1,
     },
     UNKNOWN_ERROR: {
       message: 'Unknown Error',
-      code: '2',
+      code: 2,
     },
     POKEMON_NOT_FOUND: {
       message: 'Pokemon not found',
-      code: '3',
+      code: 3,
+    },
+    POKEMON_NAME_SHOULD_BE_STRING: {
+      message: `Pokemon's name should a string`,
+      code: 4,
+    },
+    UNHANDLED: {
+      message: 'Unhandled error',
+      code: 5,
     },
   };
 }
