@@ -47,4 +47,23 @@ describe('removeWhitespaceEscapeCharsFromString', () => {
       expect(translationType).to.be.eq(Translation.SHAKESPEARE);
     });
   });
+
+  describe('isNumber', () => {
+    it('should be a number', () => {
+      const result = helperService.isNumber('5');
+      expect(result).to.be.eq(true);
+    });
+    it('should be a number', () => {
+      const result = helperService.isNumber('5.57');
+      expect(result).to.be.eq(true);
+    });
+    it('should not be a number', () => {
+      const result = helperService.isNumber('Test');
+      expect(result).to.be.eq(false);
+    });
+    it('should not be a number', () => {
+      const result = helperService.isNumber('5s');
+      expect(result).to.be.eq(false);
+    });
+  });
 });

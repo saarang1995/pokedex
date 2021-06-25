@@ -22,4 +22,14 @@ export default class HelperService {
 
     return translation;
   }
+
+  /**
+   * @description checks if the input is number or not
+   * @param input
+   * @returns boolean
+   */
+  isNumber(input: string): boolean {
+    const inputConvertedToNumber = Number(input);
+    return !isNaN(inputConvertedToNumber);
+  }
 }
