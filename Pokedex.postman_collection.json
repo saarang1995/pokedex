@@ -1,70 +1,89 @@
 {
-  "info": {
-    "_postman_id": "5aba0065-3a4c-44dc-b18a-bfedf5969e9b",
-    "name": "Pokedex",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-  },
-  "item": [
-    {
-      "name": "Health check",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "{{base-url}}/ping",
-          "host": ["{{base-url}}"],
-          "path": ["ping"]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Basic Pokemon Information",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "{{base-url}}/pokemon/mewtwo",
-          "host": ["{{base-url}}"],
-          "path": ["pokemon", "mewtwo"]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Get Translated Information",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "{{base-url}}/pokemon/translated/mewtwo",
-          "host": ["{{base-url}}"],
-          "path": ["pokemon", "translated", "mewtwo"]
-        }
-      },
-      "response": []
-    }
-  ],
-  "event": [
-    {
-      "listen": "prerequest",
-      "script": {
-        "type": "text/javascript",
-        "exec": [""]
-      }
-    },
-    {
-      "listen": "test",
-      "script": {
-        "type": "text/javascript",
-        "exec": [""]
-      }
-    }
-  ],
-  "variable": [
-    {
-      "key": "base-url",
-      "value": "localhost:3000"
-    }
-  ]
+	"info": {
+		"_postman_id": "5aba0065-3a4c-44dc-b18a-bfedf5969e9b",
+		"name": "Pokedex",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Health check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base-url}}/ping",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"ping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Basic Pokemon Information",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base-url}}/pokemon/mewtwo",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"pokemon",
+						"mewtwo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Translated Pokemon Information",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base-url}}/pokemon/translated/mewtwo",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"pokemon",
+						"translated",
+						"mewtwo"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base-url",
+			"value": "localhost:3000"
+		}
+	]
 }
