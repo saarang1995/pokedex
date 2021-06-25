@@ -13,7 +13,7 @@ export default class PokemonRoute {
   }
 
   initRoutes() {
-    this.router.get('', (req: Request, res: Response) => {
+    this.router.get('/:name', (req: Request, res: Response) => {
       const pokemonController = PokemonRoute.getPokemonControllerInstance(req);
       pokemonController.getInformation(req, res);
     });

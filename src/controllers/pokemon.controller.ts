@@ -8,7 +8,8 @@ export default class PokemonController {
 
   public async getInformation(req: Request, res: Response) {
     try {
-      const response = await this.pokemonService.getInformation();
+      const name = req.params.name;
+      const response = await this.pokemonService.getInformation(name);
       return ResponseFormatter.sendSuccessResponse(res, response);
     } catch (exception) {
       ResponseFormatter.sendErrorResponse(res, exception);
