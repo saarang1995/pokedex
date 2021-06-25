@@ -3,14 +3,19 @@ export default interface Species {
   name: string;
   is_legendary: boolean;
   evolution_chain: any;
-  flavor_text_entries: FlavorTextEntries[];
+  flavor_text_entries: FlavorTextEntry[];
   habitat: Habitat;
 }
 
-interface FlavorTextEntries {
+export interface FlavorTextEntry {
   flavor_text: string;
-  language: object;
+  language: Language;
   version: object;
+}
+
+interface Language {
+  name: string;
+  url: string;
 }
 
 interface Habitat {

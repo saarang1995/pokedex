@@ -1,3 +1,4 @@
+import { FlavorTextEntry } from './../interfaces/api_response_interfaces/species.interface';
 import axios, { AxiosResponse } from 'axios';
 import Config from '../constants/config';
 import Network from '../constants/network';
@@ -51,14 +52,15 @@ export default class PokeApiService {
       pokemonName = speciesData.name;
       isLegendary = speciesData.is_legendary;
 
-      if (
-        speciesData.flavor_text_entries &&
-        speciesData.flavor_text_entries[0] &&
-        speciesData.flavor_text_entries[0].flavor_text
-      ) {
-        description = this.helperService.removeWhitespaceEscapeCharsFromString(
-          speciesData.flavor_text_entries[0].flavor_text
+      if (speciesData.flavor_text_entries) {
+        const englishFlavorTest = this.getFirstEnglishFlavorText(
+          speciesData.flavor_text_entries
         );
+
+        description =
+          this.helperService.removeWhitespaceEscapeCharsFromString(
+            englishFlavorTest
+          );
       }
     }
 
@@ -68,5 +70,16 @@ export default class PokeApiService {
       isLegendary,
       description,
     };
+  }
+
+  public getFirstEnglishFlavorText(flavorTextEntries: FlavorTextEntry[]) {
+    const englishFlavorTextEntry = flavorTextEntries.find(
+      (flavorText) =>
+        flavorText &&
+        flavorText.language &&
+        flavorText.language.name &&
+        flavorText.language.name == 'en'
+    );
+    return englishFlavorTextEntry ? englishFlavorTextEntry.flavor_text : null;
   }
 }
