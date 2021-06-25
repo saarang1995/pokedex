@@ -21,8 +21,7 @@ export default class PokemonRoute {
       '/:name',
       PokemonMiddleware.checkIfNameIsString,
       (req: Request, res: Response) => {
-        const pokemonController =
-          PokemonRoute.getPokemonControllerInstance(req);
+        const pokemonController = PokemonRoute.getPokemonControllerInstance();
         pokemonController.getInformation(req, res);
       }
     );
@@ -30,19 +29,19 @@ export default class PokemonRoute {
       '/translated/:name',
       PokemonMiddleware.checkIfNameIsString,
       (req: Request, res: Response) => {
-        const pokemonController =
-          PokemonRoute.getPokemonControllerInstance(req);
+        const pokemonController = PokemonRoute.getPokemonControllerInstance();
         pokemonController.getTranslatedInformation(req, res);
       }
     );
   }
 
-  private static getPokemonControllerInstance(req: Request): PokemonController {
+  private static getPokemonControllerInstance(): PokemonController {
+    const translatorService = new HelperService();
     return new PokemonController(
       new PokemonService(
         new PokeApiService(new HelperService()),
-        new TranslatorService(),
-        new HelperService()
+        new TranslatorService(translatorService),
+        translatorService
       )
     );
   }

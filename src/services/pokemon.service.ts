@@ -35,7 +35,7 @@ export default class PokemonService {
     const pokeDexData: PokeDexData = await this.pokeApiService.getPokemonData(
       name
     );
-
+    // Checking which translation to apply
     const translation: Translation = this.helperService.getTranslationType(
       pokeDexData.habitat,
       pokeDexData.isLegendary

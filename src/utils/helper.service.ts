@@ -32,4 +32,12 @@ export default class HelperService {
     const inputConvertedToNumber = Number(input);
     return !isNaN(inputConvertedToNumber);
   }
+
+  printApiServer(message: string, error: any) {
+    if (error.isAxiosError) {
+      console.error(message, error.response);
+    } else {
+      console.error(message, error);
+    }
+  }
 }

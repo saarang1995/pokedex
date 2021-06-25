@@ -2,6 +2,7 @@ import { Translation } from './../enums/translation.enum';
 import axios, { AxiosResponse, AxiosError } from 'axios';
 import Config from '../constants/config';
 import TranslationData from '../interfaces/api_response_interfaces/translation_data.interface';
+import HelperService from '../utils/helper.service';
 
 /**
  * Responsible for Translating test [Available options : Shakespeare or Yoda]
@@ -14,6 +15,14 @@ export default class TranslatorService {
     [Translation.SHAKESPEARE, this.BASE_URL + 'shakespeare.json'],
   ]);
 
+  constructor(private helperService: HelperService) {}
+
+  /**
+   * @description translated text using FunTranslator API
+   * @param text
+   * @param translation
+   * @returns
+   */
   async getTranslation(text: string, translation: Translation) {
     try {
       const response: AxiosResponse = await axios.get(
@@ -32,15 +41,14 @@ export default class TranslatorService {
 
       return translationData.contents.translated;
     } catch (error) {
-      if (error.isAxiosError) {
-        console.error(
-          'Error while trying to translate the description',
-          error.response
-        );
-      } else {
-        console.error('Error while trying to translate the description', error);
-      }
-
+      /**
+       * Not throwing error as translation is not compulsory
+       * Returning same text (As per the requirement)
+       * */
+      this.helperService.printApiServer(
+        'Error while trying to translate the description',
+        error
+      );
       return text;
     }
   }

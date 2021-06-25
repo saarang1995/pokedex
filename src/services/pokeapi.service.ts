@@ -20,12 +20,21 @@ export default class PokeApiService {
 
   constructor(private helperService: HelperService) {}
 
+  /**
+   * @description Get pokemon data from PokeAPI and format the response
+   * @param name
+   * @returns PokeDexData
+   */
   public async getPokemonData(name: string): Promise<PokeDexData> {
     let speciesResponse: AxiosResponse;
 
     try {
       speciesResponse = await axios.get(this.APIS.SPECIES + name);
     } catch (error) {
+      this.helperService.printApiServer(
+        'Error while fetching Pokemon Data',
+        error
+      );
       throw Network.ERROR_CODES.POKEMON_NOT_FOUND;
     }
     const speciesData: Species = speciesResponse.data;
