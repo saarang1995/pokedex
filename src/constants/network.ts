@@ -19,5 +19,17 @@ export default class Network {
       message: 'Unhandled error',
       code: 'UNHANDLED',
     },
+    SUCCESS: {
+      message: 'ok',
+      code: '0',
+    },
+    INVALID_PARAMETER: {
+      message: 'Invalid/Missing Parameter',
+      code: '1',
+    },
+    UNKNOWN_ERROR: {
+      message: 'Unknown Error',
+      code: '2',
+    },
   };
 }
