@@ -2,6 +2,7 @@ import { Translation } from './../enums/translation.enum';
 import PokeDexData from '../interfaces/pokedex_data.interface';
 import PokeApiService from './pokeapi.service';
 import TranslatorService from './translator.service';
+import HelperService from '../utils/helper.service';
 
 /**
  * Responsible for handling Pokedex server -> pokemon APIs
@@ -9,25 +10,38 @@ import TranslatorService from './translator.service';
 export default class PokemonService {
   constructor(
     private pokeApiService: PokeApiService,
-    private translatorService: TranslatorService
+    private translatorService: TranslatorService,
+    private helperService: HelperService
   ) {}
-  public async getInformation(name: string) {
+
+  /**
+   *
+   * @param name
+   * @returns pokeDexData Object
+   */
+  public async getInformation(name: string): Promise<PokeDexData> {
     const pokeDexData: PokeDexData = await this.pokeApiService.getPokemonData(
       name
     );
     return pokeDexData;
   }
 
-  public async getTranslatedInformation(name: string) {
+  /**
+   *
+   * @param name
+   * @returns pokeDexData Object with translated description
+   */
+  public async getTranslatedInformation(name: string): Promise<PokeDexData> {
     const pokeDexData: PokeDexData = await this.pokeApiService.getPokemonData(
       name
     );
 
-    const translation: Translation =
-      pokeDexData.habitat == 'cave' || pokeDexData.isLegendary
-        ? Translation.YODA
-        : Translation.SHAKESPEARE;
+    const translation: Translation = this.helperService.getTranslationType(
+      pokeDexData.habitat,
+      pokeDexData.isLegendary
+    );
 
+    // fetch and update description to a translated description (if available)
     pokeDexData.description = await this.translatorService.getTranslation(
       pokeDexData.description,
       translation

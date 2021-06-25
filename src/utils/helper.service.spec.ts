@@ -1,3 +1,4 @@
+import { Translation } from './../enums/translation.enum';
 import { expect } from 'chai';
 import HelperService from './helper.service';
 
@@ -22,5 +23,28 @@ describe('removeWhitespaceEscapeCharsFromString', () => {
       helperService.removeWhitespaceEscapeCharsFromString(input);
 
     expect(formattedString).to.be.eq(expectedOutput);
+  });
+
+  describe('getTranslationType', () => {
+    it('It should return the YODA Translation', () => {
+      const translationType = helperService.getTranslationType('cave', false);
+      expect(translationType).to.be.eq(Translation.YODA);
+    });
+    it('It should return the YODA Translation', () => {
+      const translationType = helperService.getTranslationType('abc', true);
+      expect(translationType).to.be.eq(Translation.YODA);
+    });
+    it('It should return the YODA Translation', () => {
+      const translationType = helperService.getTranslationType('cave', true);
+      expect(translationType).to.be.eq(Translation.YODA);
+    });
+    it('It should return the SHAKESPEARE Translation', () => {
+      const translationType = helperService.getTranslationType('abc', false);
+      expect(translationType).to.be.eq(Translation.SHAKESPEARE);
+    });
+    it('It should return the SHAKESPEARE Translation', () => {
+      const translationType = helperService.getTranslationType('ionsa', false);
+      expect(translationType).to.be.eq(Translation.SHAKESPEARE);
+    });
   });
 });
