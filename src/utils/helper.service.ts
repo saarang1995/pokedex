@@ -1,3 +1,4 @@
+import { AxiosError } from 'axios';
 import { Translation } from './../enums/translation.enum';
 export default class HelperService {
   /**
@@ -35,7 +36,16 @@ export default class HelperService {
 
   printApiServer(message: string, error: any) {
     if (error.isAxiosError) {
-      console.error(message, error.response);
+      const e = error as AxiosError;
+      let data;
+      if (e.response) {
+        if (e.response.data) {
+          data = e.response.data;
+        } else {
+          data = e.response;
+        }
+      }
+      console.error(message, data);
     } else {
       console.error(message, error);
     }

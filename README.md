@@ -4,7 +4,7 @@ This service uses https://pokeapi.co/ and https://api.funtranslations.com API to
 
 ## Hello team
 
-My name is Saarang Tiwari and I am the developer who built this application.
+My name is Saarang Tiwari and I am the developer who developed this application.
 
 ## How to run the project
 
@@ -112,6 +112,15 @@ Below is an example of error:
 - Unit test files are structured in the services folder along with the respected service file.
 - Example file name: `filename.service.spec.ts`
 
+## What would have I done in case of production release
+
+- I would keep a `.env` file for maintaining environment variables. Currently config.ts file has variables pointing to `process.env`
+
+- I would use production api for fun translator service as the current one has rate-limiting
+- A CI/CD can be setup for running test cases and on a successful run we can deploy the services.
+- I would create separate branches for `development` | `staging` | `production` to keep separate deployment strategies
+- I would create separate environments within postman collection. [Didn't do that in this case as there was only one variable]
+
 ## 🔧 Technologies & Tools
 
 ![](https://img.shields.io/badge/Tools-Docker-informational?style=flat&logo=docker&logoColor=white&color=2bbc8a)
@@ -141,9 +150,3 @@ Below is an example of error:
   - **app.ts**: Responsible for server instance creation and starting of express server
   - **server.ts**: Responsible booting nodejs and running app.ts
 - **/dist**: Compiled Javascript code
-
-## How to run the project
-
-```
-
-```
