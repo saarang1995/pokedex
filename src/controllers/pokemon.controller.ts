@@ -15,4 +15,14 @@ export default class PokemonController {
       ResponseFormatter.sendErrorResponse(res, exception);
     }
   }
+
+  public async getTranslatedInformation(req: Request, res: Response) {
+    try {
+      const name = req.params.name;
+      const response = await this.pokemonService.getTranslatedInformation(name);
+      return ResponseFormatter.sendSuccessResponse(res, response);
+    } catch (exception) {
+      ResponseFormatter.sendErrorResponse(res, exception);
+    }
+  }
 }

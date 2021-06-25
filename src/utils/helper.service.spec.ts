@@ -14,4 +14,13 @@ describe('removeWhitespaceEscapeCharsFromString', () => {
 
     expect(formattedString).to.be.eq(expectedOutput);
   });
+
+  it('Should be able to handle empty string', () => {
+    const input = '';
+    const expectedOutput = '';
+    const formattedString =
+      helperService.removeWhitespaceEscapeCharsFromString(input);
+
+    expect(formattedString).to.be.eq(expectedOutput);
+  });
 });
