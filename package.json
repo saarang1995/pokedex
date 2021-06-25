@@ -7,7 +7,8 @@
     "start": "nodemon dist/server.js",
     "debug": "nodemon  --inspect dist/server.js",
     "compile": "tsc -w",
-    "compile-once": "tsc"
+    "compile-once": "tsc",
+    "test": "node_modules/mocha/bin/mocha --exit -r ts-node/register 'src/**/**spec.ts'"
   },
   "repository": {
     "type": "git",
@@ -46,6 +47,8 @@
     "@types/mocha": "^8.2.2",
     "@types/node": "^15.12.4",
     "chai": "^4.3.4",
+    "mocha": "^9.0.1",
+    "mochawesome": "^6.2.2",
     "nodemon": "^2.0.7",
     "ts-node": "^10.0.0",
     "typescript": "^4.3.4"

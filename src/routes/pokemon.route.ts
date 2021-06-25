@@ -1,6 +1,7 @@
 import * as express from 'express';
 import { Request, Response } from 'express';
 import PokemonController from '../controllers/pokemon.controller';
+import PokeApiService from '../services/pokeapi.service';
 import PokemonService from '../services/pokemon.service';
 
 export default class PokemonRoute {
@@ -20,6 +21,6 @@ export default class PokemonRoute {
   }
 
   private static getPokemonControllerInstance(req: Request): PokemonController {
-    return new PokemonController(new PokemonService());
+    return new PokemonController(new PokemonService(new PokeApiService()));
   }
 }

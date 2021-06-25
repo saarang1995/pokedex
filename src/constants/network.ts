@@ -31,5 +31,9 @@ export default class Network {
       message: 'Unknown Error',
       code: '2',
     },
+    POKEMON_NOT_FOUND: {
+      message: 'Pokemon not found',
+      code: '3',
+    },
   };
 }
