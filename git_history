@@ -1,3 +1,27 @@
+commit 377e6d412d2d88ceb8ab86013e49e8b62e26281b
+Author: saarang1995 <saarang.tiwari@hotmail.com>
+Date:   Sat Jun 26 00:05:10 2021 +0530
+
+    Added updated Postman collection
+
+commit a782f00fdc73a7397b4c4e8112cca89deaa99db0
+Author: saarang1995 <saarang.tiwari@hotmail.com>
+Date:   Sat Jun 26 00:03:40 2021 +0530
+
+    Improved readme.md
+
+commit 15a49c990b021d82e74c74a3cf96f303e89da863
+Author: saarang1995 <saarang.tiwari@hotmail.com>
+Date:   Fri Jun 25 23:52:59 2021 +0530
+
+    Added correct flavorText english extraction function
+
+commit a9ec2c691c097f85acd28269e600f791164ac0b3
+Author: saarang1995 <saarang.tiwari@hotmail.com>
+Date:   Fri Jun 25 22:39:38 2021 +0530
+
+    Added git history file
+
 commit a5cf000e3a27702b1b8c1c38e42cd36cee89e6db
 Author: saarang1995 <saarang.tiwari@hotmail.com>
 Date:   Fri Jun 25 22:38:12 2021 +0530
